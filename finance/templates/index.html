@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Portfolio
+{% endblock %}
+
+{% block main %}
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Symbol</th>
+                    <th>Shares</th>
+                    <th>Price</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for s in stocks %}
+                    <tr>
+                        <td>{{ s["share_name"] }}</td>
+                        <td>{{ s["symbol"] }}</td>
+                        <td>{{ s["shares"] }}</td>
+                        <td>{{ stock[s["symbol"]] | usd }}</td>
+                        <td>{{ total[s["symbol"]] | usd }} </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>Cash</td>
+                    <td>{{ cash | usd }}</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>GrandTotal</td>
+                    <td>{{ GrandTotal | usd }} </td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+
+{% endblock %}

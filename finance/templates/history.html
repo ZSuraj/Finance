@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    History
+{% endblock %}
+
+{% block main %}
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Symbol</th>
+                    <th>Shares</th>
+                    <th>Price</th>
+                    <th>Transacted</th>
+                    <th>Type</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for s in stocks %}
+                    <tr>
+                        <td>{{ s["share_name"] }}</td>
+                        <td>{{ s["symbol"] }}</td>
+                        <td>{{ s["no_of_shares"] }}</td>
+                        <td>{{ s["share_price"] }}</td>
+                        <td>{{ s["time"] }} </td>
+                        <td>{{ s["type"] }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+{% endblock %}
